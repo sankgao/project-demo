@@ -14,9 +14,10 @@ server.build_job(
     }
 )
 
-last_build_number = server.get_job_info('test')['lastCompletedBuild']['number']
-build_info = server.get_build_info('test', last_build_number)
-parameters = build_info['actions'][0]['parameters']
+queue_info = server.get_queue_info()  # 获取排队的构建信息
+print(queue_info)
+
+parameters = queue_info[0]['actions'][0]['parameters']  # 获取指定构建的参数
 
 for i in parameters:
     print('name: %-35s value: %s' % (i['name'], i['value']))
