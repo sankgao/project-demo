@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int main(void)  /* 一个简单的 C 程序 */
-{
+int main(void) {  /* 一个简单的 C 程序 */
+
     int num;  /* 定义一个名为 num 的变量 */
     num = 1;  /* 为 num 赋一个值 */
 

@@ -1,8 +1,7 @@
 /* nogood.c -- 有错误的程序 */
 #include <stdio.h>
 
-int main(void)
-(
+int main(void) (
     int n, int n2, int n3;
 
     /* 该程序有多处错误
