@@ -1,14 +1,42 @@
-@echo off
-:: "Hello, World!"
-rem "Hello, World!"
+echo on
+echo
+:: 示例 1：命令回显功能打开时，不会显示 :: 注释内容
+rem 示例 2：命令回显功能打开时，会显示 rem 注释内容
+@rem 示例 3：在 rem 命令前添加 @ 字符，计算命令回显功能打开，也不会显示 rem 注释内容
 
-echo "Hello, World! 01"  :: "Hello, World!"
-echo "Hello, World! 02"  rem "Hello, World!"
-echo "Hello, World! 03"  %行内注释%
+echo off
+echo
+:: 示例 3：命令回显功能关闭时，不会显示 :: 注释内容
+rem 示例 4：命令回显功能关闭时，不会显示 rem 注释内容
+echo on
 
-Rem/||(
-  The REM statement evaluates to success,
-  so these lines will never be executed.
-  Keep in mind that you will need to escape closing parentheses
-  within multi-line comment blocks like shown in this example. ^)
+rem 多行注释
+rem 方法 1：使用 rem/||() 将多行注释写到 () 括号中
+@rem/||(
+    这是一行注释
+    这是另一行注释
 )
+
+rem 方法 2：使用双引号 "" 将内容引起来
+@rem "这是一行注释"
+@rem "这是另一行注释"
+
+rem 方法 3：使用小括号 () 将内容引起来
+@rem (这是一行注释)
+@rem (这是另一行注释)
+
+rem 方法 4：使用 rem 命令将内容隔开
+@rem 这是一行注释
+@rem
+@rem 这是另一行注释
+
+rem ":: 命令除了 rem 方法 1 不能使用，其它使用方法和 rem 一样"
+:: "这是一行注释"
+:: "这是另一行注释"
+
+:: (这是一行注释)
+:: (这是另一行注释)
+
+:: 这是一行注释
+:: 
+:: 这是另一行注释
