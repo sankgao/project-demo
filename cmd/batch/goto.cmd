@@ -4,9 +4,9 @@ echo 选择您喜欢的动物：
 echo 1. 狗 
 echo 2. 猫
 
-set /p animal=输入您的选择（请输入 1 或 2）: 
-if "%animal%" == "1" goto dog
-if "%animal%" == "2" goto cat
+set /p animal=输入您的选择（请输入 1 或 2）：
+if %animal% == 1 goto dog
+if %animal% == 2 goto cat
 goto:EOF
 
 :dog
@@ -16,3 +16,16 @@ goto:EOF
 :cat
 echo 猫
 goto:EOF
+
+
+rem 示例 2：实现循环。
+:nums
+set /p num=请输入 0~10 以内的数字（输入 exit 退出，否则一直输入）：
+if %num% LSS 10 (
+    goto nums
+) else if "%num%" == "exit" (
+    goto:EOF
+) else (
+    echo 输入的不是 10 以内的数字！
+    goto nums
+)
