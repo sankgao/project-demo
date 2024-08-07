@@ -11,21 +11,26 @@ goto:EOF
 
 :dog
 echo 狗
+set animal=
 goto:EOF
 
 :cat
 echo 猫
+set animal=
 goto:EOF
 
 
-rem 示例 2：实现循环。
+rem 示例 2：实现循环。 
 :nums
 set /p num=请输入 0~10 以内的数字（输入 exit 退出，否则一直输入）：
 if %num% LSS 10 (
+    set num=
     goto nums
 ) else if "%num%" == "exit" (
+    set num=
     goto:EOF
 ) else (
     echo 输入的不是 10 以内的数字！
+    set num=
     goto nums
 )
