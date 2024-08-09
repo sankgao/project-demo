@@ -1,12 +1,14 @@
 @echo off
-echo ****************强制删除目录****************
-echo 使用方法： 
-echo 1.请输入要删除目录的完整路径地址。 
-echo 2.将要删除的目录拖放到执行中的批处理中。 
-echo 3.将要删除的目录拖放到程序图标上。 
-echo 注意：支持文件删除，删除后无法在回收站恢复。
-echo ********************************************
+@chcp 65001
+echo ################强制删除文件或目录################
+echo #  使用方法：                                    #
+echo #      1. 请输入要删除文件或目录的完整路径地址。 #
+echo #      2. 将要删除的目录拖放到执行中的批处理中。 #
+echo #      3. 将要删除的目录拖放到程序上。           #
+echo #  注意：文件或目录删除后无法在回收站恢复！！！  #
+echo ##################################################
 echo=
+
 set inPath=%1
 if defined inPath (
   goto op1
@@ -14,28 +16,23 @@ if defined inPath (
   goto op2
 )
 
+
 :op1
+rem 判断是文件还是目录。
 if exist %inPath%\nul (
-  rem 删除目录下所有文件(网传有 del /f /a /q \\?%1 做法)
-  del /f /a /q %1
-  rem 删除当前目录(网传有 rd /s /q \\?%1 做法)
   rd /s /q %1
 ) else (
-  rem 删除目录下所有文件(网传有 del /f /a /q \\?%1 做法)
-  del /f /a /q %1
+  del /f /q %1
 )
 goto end
 
+
 :op2
-set /p inPath=目录完全路径地址(输入或拖放)并回车:
+set /p inPath=输入或拖放要删除文件或目录的完整路径地址：
 if exist %inPath%\nul (
-  rem 删除目录下所有文件
-  del /f /a /q %inPath%
-  rem 删除当前目录
   rd /s /q %inPath%
 ) else (
-  rem 删除目录下所有文件
-  del /f /a /q %inPath%
+  del /f /q %inPath%
 )
 goto end
 
